@@ -1,5 +1,6 @@
 body {
   background-color: black;
+  color: grey;
 }
 
 h1 {
@@ -7,5 +8,5 @@ h1 {
   font-size: 3.5em;
   text-shadow: 2px 2px 5px blue;
   font-variant: small-caps;
-  margin-left: 20px;
+  margin: center;
 }
