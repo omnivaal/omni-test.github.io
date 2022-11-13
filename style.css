@@ -10,3 +10,8 @@ h1 {
   font-variant: small-caps;
   text-align: center;
 }
+
+p {
+  color: grey;
+  font-size: 5vw;
+}
