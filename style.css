@@ -11,6 +11,10 @@ h1 {
   text-align: center;
 }
 
+h6 {
+  font-size: 1vw;
+  text-align: center;
+
 div {
   width: 70%;
   margin: auto;
