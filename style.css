@@ -25,3 +25,15 @@ p {
   color: grey;
   font-size: 2vw;
 }
+
+@media only screen and (orientation: portrait) {
+  h1 {
+    font-size: 20vw;
+  }
+  h6 {
+    font-size: 2vw;
+  }
+  p {
+    font-size: 4vw;
+  }
+}
