@@ -2,28 +2,58 @@ body {
   background-color: black;
   color: grey;
 }
-
 h1 {
+  position: sticky;
   color: grey;
   font-size: 10vw;
   text-shadow: 2px 2px 5px blue;
   font-variant: small-caps;
   text-align: center;
 }
-
 h6 {
   font-size: 1vw;
   text-align: center;
 }
-
 div {
-  width: 70%;
+  width: 70%; 
   margin: auto;
 }
-
 p {
   color: grey;
   font-size: 2vw;
+}
+ul {
+  position: sticky;
+  
+  width: 100%;
+  list-style-type: none;
+  background-color: grey;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+li {
+  float: left;
+}
+li a {
+  display: block;
+  color: black;
+  text-shadow: 1px 1px 2px blue;
+  
+  padding: 8px 30px;
+  text-decoration: none;
+  text-align: center;
+}
+li a.active {
+  background-color: blue;
+  color: grey;
+  text-shadow: 2px 2px 3px black;
+  font-weight: bold;
+}
+li a:hover {
+  background-color: #555;
+  color: white;
+  text-shadow: 2px 2px 3px black;
 }
 
 @media only screen and (orientation: portrait) {
