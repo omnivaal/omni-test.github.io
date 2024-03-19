@@ -1,23 +1,95 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <head>
+    <title>OmnivaaL - Fret Spacing Calculator</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
 
-<h2>Fret Spacing Calculator</h2>
+    <h2 class="smallcap" style="text-align: center;">OmnivaaL</h2>
+    <h3>Fret Spacing Calculator</h3>
 
-<p>Enter scale length in inches</p>
+    <form>
+      <table>
+        <tr>
+          <td>
+            <label for="scale">Scale length in inches:</label>
+          </td>
+          <td>
+            <input type="number" id="scale" value="25.5" width="5">
+          </td>
+          <td>
+            <input type="button" onclick="calcFrets();" value="Calculate">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="fretnum">Number of frets:</label>
+          </td>
+          <td>
+            <input type="number" id="fretnum" value="22" width="5">
+          </td>
+          <td>
+            <input type="button" onclick="location.reload();" value="Reset">
+          </td>
+        </tr>
+      </table>
+    </form>
 
-<p id="fret1"></p>
+    <table id="results" style="border: 3px ridge grey; visibility: hidden;">
+      <tr>
+        <th id="col1"></th>
+        <th id="col2"></th>
+        <th id="col3"></th>
+      </tr>
 
-<script>
-  const SC = 17.817
-  let scaleLength = 25.5, fretNum = 21;
+    </table>
 
-  for(i = 0; i < fretNum; i++) {
-    fretSpacing = scaleLength / SC;
-  }
-  spacing = scaleLength / SC
-  document.getElementById("fret1").innerHTML = spacing.toFixed(2);
-</script>
+    <script>
+        const SC = 17.817;
+        let fretInt = 0, fretDist = 0;
+        let scaleLength = 25.5, numFrets = 21;
+        let fretsArr = [], fretsTotalArr = [];
+        let table = document.getElementById("results");
 
-</body>
+
+        function calcFrets() {
+          var x = document.getElementById("col1");
+          var y = document.getElementById("col2");
+          var z = document.getElementById("col3");
+          x.innerHTML = "Fret";
+          y.innerHTML = "inches";
+          z.innerHTML = "MM";
+
+          scaleLength = document.getElementById("scale").value;
+          numFrets = document.getElementById("fretnum").value;
+
+          document.getElementById("results").style.visibility="visible";
+
+          for (let i=1; i<numFrets+1; i++) {
+            fretInt = scaleLength/SC;
+            fretDist += fretInt;
+
+            fretsArr.push(i);
+            fretsArr.push(fretDist.toFixed(3));
+            fretsArr.push((fretDist*25.4).toFixed(2));
+            fretsTotalArr.push(fretsArr);
+
+            fretsArr = [];
+            scaleLength -= fretInt;
+          }
+
+          for (i=0; i<numFrets; i++) {
+            let row = table.insertRow(-1);
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+            cell1.innerHTML = fretsTotalArr[i][0];
+            cell2.innerHTML = fretsTotalArr[i][1];
+            cell3.innerHTML = fretsTotalArr[i][2];
+
+          }
+        }
+    </script>
+  </body>  
 </html>
